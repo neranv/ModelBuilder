@@ -8,6 +8,7 @@
 #
 
 library(shiny)
+library(plotly)
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
@@ -23,6 +24,9 @@ shinyUI(fluidPage(
   p("1. The variable selected as ouput wont show up in the predictors list."),
   p("2. Model is built using the lm() function."),
   p("3. Predicted values are obtained using the predict() function"),
+  p("4. Source code is at"),
+  a("https://github.com/neranv/ModelBuilder"),
+  hr(),
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
