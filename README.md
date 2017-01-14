@@ -2,6 +2,8 @@
 
 This was done as part of the Coursera course - "Developing Data Products"
 
+The web application is at https://narenv.shinyapps.io/ModelBuilder/
+
 This is an interactive linear model builder which helps one to see the 
 effects of different predictors on the ouput. Two sample datasets are 
 used - mtcars, iris. It is straight forward to use. First decide and choose a 
