@@ -1,0 +1,56 @@
+---
+title: "ModelBuilder"
+author: "Naren Vijayakumar"
+date: "Jan 14, 2017"
+output: ioslides_presentation
+---
+<style type="text/css">
+pre{
+  font-size: 15px;
+}
+</style>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+
+* ***ModelBuilder*** is an easy to use and interactive linear model builder 
+* Enables one to see the effects of different predictors on the ouput. 
+* Once a model is built. It provides 
+    + Summary of the model 
+    + "Actual vs Predicted" Plot
+* Application is hosted at <https://narenv.shinyapps.io/ModelBuilder/>
+
+## Walkthrough
+Select a Dataset, Choose Ouput and Predictors and Click Build
+```{r fig.width=5, fig.height=5,echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("images/Screenshot1.png")
+ grid.raster(img)
+```
+
+## Output: "Actual vs Predicted" Plot
+
+```{r echo=FALSE,message=FALSE}
+library(plotly)
+mymodel <- lm(mpg~cyl+disp+wt+am+gear,mtcars)
+predicted_values <- predict(mymodel)
+g <- ggplot(data.frame(Actual=mtcars$mpg,Predicted=predicted_values), 
+            aes(x=Actual,y=Predicted)) + geom_point(color="blue")
+ggplotly(g)
+
+```
+
+## Output: Model Summary
+```{r fig.width=7, fig.height=4,echo=FALSE, fig.align='center'}
+img <- readPNG("images/Screenshot2.png")
+ grid.raster(img)
+```
+
+
+
+
