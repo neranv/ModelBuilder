@@ -40,7 +40,8 @@ library(plotly)
 mymodel <- lm(mpg~cyl+disp+wt+am+gear,mtcars)
 predicted_values <- predict(mymodel)
 g <- ggplot(data.frame(Actual=mtcars$mpg,Predicted=predicted_values), 
-            aes(x=Actual,y=Predicted)) + geom_point(color="blue")
+            aes(x=Actual,y=Predicted)) + geom_point(color="blue") +
+            geom_smooth(method = "lm")
 ggplotly(g)
 
 ```
