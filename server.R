@@ -31,7 +31,8 @@ shinyServer(function(input, output, session) {
       actual_values <- d()[,input$out]
       predicted_values <- predict(mymodel)
       g <- ggplot(data = data.frame(Actual=actual_values,Predicted=predicted_values),
-                  aes(x=Actual,y=Predicted)) + geom_point(color="blue")
+                  aes(x=Actual,y=Predicted)) + geom_point(color="blue") +
+                  geom_smooth(method = "lm")
       output$myplot <- renderPlotly(g)
     }
     else {
